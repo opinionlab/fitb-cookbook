@@ -9,13 +9,13 @@ $pollingenabled = <%= @config['pollingenabled'] %>;
 # 
 $pollhosts = array(
   <% @config['switches'].each do |switch, switch_hash| %>
-    <%= switch %> => array(
-        "prettyname" => <%= switch_hash['prettyname'] %>, 
+    "<%= switch %>" => array(
+        "prettyname" => "<%= switch_hash['prettyname'] %>", 
         "enabled" => <%= switch_hash['enabled'] %>, 
         "showoninterface" => <%= switch_hash['showoninterface'] %>, 
-        "ip" => <%= switch_hash['ip'] %>, 
-        "snmpcommunity" => <%= switch_hash['snmpcommunity'] %>,
-        "graphtypes" => array(<%= switch_hash['graphtypes'] %>)),
+        "ip" => "<%= switch_hash['ip'] %>", 
+        "snmpcommunity" => "<%= switch_hash['snmpcommunity'] %>",
+        "graphtypes" => array(<% switch_hash['graphtypes'].each do |gt| %>"<%= gt %>",<% end %>),
       ) 
   <% end %>
 );
@@ -27,22 +27,22 @@ $pollhosts = array(
 $verbose = <%= @config['verbose'] %>;
 
 # The path to your desired rrdtool binary.
-$path_rrdtool = <%= @config['path_rrdtool'] %>;
+$path_rrdtool = "<%= @config['path_rrdtool'] %>";
 
 # The path where you want to store your RRD files. The default is the "rrds" directory beneath this file.
-$path_rrd = dirname(__FILE__) . <%= @config['path_rrd'] %>;
+$path_rrd = dirname(__FILE__) . "<%= @config['path_rrd'] %>";
 
 
 # Feel free to adjust these RRA definitions. Default stores 1 month at 1 minute resolution, and 1 year at 60 minutes
-$RRA_average = <%= @config['RRA_average'] %>;
-$RRA_max     = <%= @config['RRA_max'] %>;
+$RRA_average = "<%= @config['RRA_average'] %>";
+$RRA_max     = "<%= @config['RRA_max'] %>";
 
 
 # Database connection parameters
-$mysql_host = <%= @config['mysql']['host'] %>;
-$mysql_user = <%= @config['mysql']['user'] %>;
-$mysql_pass = <%= @config['mysql']['pass'] %>;
-$mysql_db   = <%= @config['mysql']['db'] %>;
+$mysql_host = "<%= @config['mysql']['host'] %>";
+$mysql_user = "<%= @config['mysql']['user'] %>";
+$mysql_pass = "<%= @config['mysql']['pass'] %>";
+$mysql_db   = "<%= @config['mysql']['db'] %>";
 
 # Old age:
 # Mark graphs older than this many seconds as stale

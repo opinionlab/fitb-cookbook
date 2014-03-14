@@ -1,0 +1,14 @@
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+    ServerAdmin  <%= @server_admin %>
+    ServerName   <%= @server_name %>
+    DocumentRoot <%= @install_dir %>
+
+    DirectoryIndex index.php
+
+    <Directory <%= @install_dir %>>
+        Options FollowSymLinks
+        AllowOverride None
+    </Directory>
+</VirtualHost>

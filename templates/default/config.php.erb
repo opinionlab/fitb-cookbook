@@ -8,14 +8,16 @@ $pollingenabled = <%= @config['pollingenabled'] %>;
 # This is the list of hosts you want to poll every minute for data. 
 # 
 $pollhosts = array(
-    "yourswitchname" => array(
-      "prettyname" => "yourswitchname", 
-      "enabled" => true, 
-      "showoninterface" => true, 
-      "ip" => "yourswitchname.yourcompany.com", 
-      "snmpcommunity" => "public",
-       "graphtypes" => array('bits','ucastpkts','errors')),
-    # more hosts go here
+  <% @config['switches'].each do |switch, switch_hash| %>
+    <%= switch %> => array(
+        "prettyname" => <%= switch_hash['prettyname'] %>, 
+        "enabled" => <%= switch_hash['enabled'] %>, 
+        "showoninterface" => <%= switch_hash['showoninterface'] %>, 
+        "ip" => <%= switch_hash['ip'] %>, 
+        "snmpcommunity" => <%= switch_hash['snmpcommunity'] %>,
+        "graphtypes" => array(<%= switch_hash['graphtypes'] %>)),
+      ) 
+  <% end %>
 );
 
 # Verbosity. Choose your level of logging here. This affects everything that logs, which at the minute is

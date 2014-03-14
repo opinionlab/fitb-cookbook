@@ -3,10 +3,13 @@
 #===============#
 
 # FITB application settings
-default['fitb']['install_dir'] = "/srv/fitb"
-default['fitb']['repository']  = "https://github.com/lozzd/FITB.git"
-default['fitb']['reference']   = "master"
-default['fitb']['user']        = "fitb"
+default['fitb']['home']         = "/srv/fitb"
+default['fitb']['install_dir']  = "/srv/fitb/app"
+default['fitb']['server_name']  = "localhost"
+default['fitb']['server_admin'] = "ops@opinionlab.com"
+default['fitb']['repository']   = "https://github.com/lozzd/FITB.git"
+default['fitb']['reference']    = "master"
+default['fitb']['user']         = "fitb"
 
 # FITB cronjob settings
 default['fitb']['cron']['name']         = "*/1"
@@ -16,6 +19,11 @@ default['fitb']['cron']['hour']         = "*"
 default['fitb']['cron']['day_of_month'] = "*"
 default['fitb']['cron']['month']        = "*"
 default['fitb']['cron']['day_of_week']  = "*"
+
+# MySQL root password for mysql cookbook
+default['mysql']['server_repl_password']   = "yourpassword"
+default['mysql']['server_root_password']   = "yourpassword"
+default['mysql']['server_debian_password'] = "yourpassword"
 
 #::
 # Config.php settings
@@ -31,7 +39,9 @@ default['fitb']['config']['switches']['yourswitchname']  = \
   'enabled'         => true,
   'prettyname'      => 'yourswitchname',
   'showoninterface' => true,
-  'ip' => '0.0.0.0'
+  'ip'              => '0.0.0.0',
+  'snmpcommunity'   => 'public',
+  "graphtypes"      => ['bits','ucastpkts','errors']
 }
 
 # Verbosity. Choose your level of logging here. This affects everything that logs, which at the minute is
@@ -53,6 +63,7 @@ default['fitb']['config']['RRA_max']     = "RRA:MAX:0.5:1:44640 RRA:MAX:0.5:60:8
 ##
 # MySQL db settings
 ##
+
 default['fitb']['config']['mysql']['host'] = "localhost"
 default['fitb']['config']['mysql']['user'] = "fitbuser"
 default['fitb']['config']['mysql']['pass'] = "fitbp4ss"

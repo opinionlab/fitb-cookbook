@@ -38,85 +38,85 @@ Attributes
     <td><tt>['fitb']['home']</tt></td>
     <td>String</td>
     <td>Users home directory</td>
-    <td><tt>"/srv/fitb"</tt></td>
+    <td><tt>/srv/fitb</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['install_dir']</tt></td>
     <td>String</td>
     <td>Users home directory</td>
-    <td><tt>"/srv/fitb/app"</tt></td>
+    <td><tt>/srv/fitb/app</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['server_name']</tt></td>
     <td>String</td>
     <td>Domain name for apache to listen on</td>
-    <td><tt>"localhost"</tt></td>
+    <td><tt>localhost</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['server_admin']</tt></td>
     <td>String</td>
     <td>Administrator email for apache</td>
-    <td><tt>"ops@yourwebsite.com"</tt></td>
+    <td><tt>ops@yourwebsite.com</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['repository']</tt></td>
     <td>String</td>
     <td>URL to FITB repo</td>
-    <td><tt>"https://github.com/lozzd/FITB.git"</tt></td>
+    <td><tt>https://github.com/lozzd/FITB.git</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['reference']</tt></td>
     <td>String</td>
     <td>Branch of FITB code to use</td>
-    <td><tt>"master"</tt></td>
+    <td><tt>master</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['user']</tt></td>
     <td>String</td>
     <td>FITB user name for app to be installed as</td>
-    <td><tt>""fitb""</tt></td>
+    <td><tt>"fitb"</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['cron']['name']</tt></td>
     <td>String</td>
     <td>Job name</td>
-    <td><tt>"FITB Poller"</tt></td>
+    <td><tt>FITB Poller</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['cron']['command']</tt></td>
     <td>String</td>
     <td>Command for cron to execute</td>
-    <td><tt>"/usr/bin/php #{default['fitb']['install_dir']}/poller.php >> #{default['fitb']['install_dir']}/poller.log 2>&1"</tt></td>
+    <td><tt>/usr/bin/php #{default['fitb']['install_dir']}/poller.php >> #{default['fitb']['install_dir']}/poller.log 2>&1</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['cron']['minute']</tt></td>
     <td>String</td>
     <td>Cron minutes</td>
-    <td><tt>"*/1"</tt></td>
+    <td><tt>*/1</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['cron']['hour']</tt></td>
     <td>String</td>
     <td>Cron hour</td>
-    <td><tt>"*"</tt></td>
+    <td><tt>*</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['cron']['day_of_month']</tt></td>
     <td>String</td>
     <td>Cron day of month</td>
-    <td><tt>"*"</tt></td>
+    <td><tt>*</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['cron']['month']</tt></td>
     <td>String</td>
     <td>Cron month</td>
-    <td><tt>"*"</tt></td>
+    <td><tt>*</tt></td>
   </tr>
   <tr>
     <td><tt>['fitb']['cron']['day_of_week']</tt></td>
     <td>String</td>
     <td>Cron day of week</td>
-    <td><tt>"*"</tt></td>
+    <td><tt>*</tt></td>
   </tr>
 </table>
 
@@ -226,13 +226,13 @@ These attributes will control the configuration of the FITB application. You can
     <td><tt>['config']['default_duration']</tt></td>
     <td>String</td>
     <td>Default time for graphs to show</td>
-    <td><tt>"-86400"</tt></td>
+    <td><tt>-86400</tt></td>
   </tr>
   <tr>
     <td><tt>['config']['error_reporting']</tt></td>
     <td>String</td>
     <td>Incase you want to debug FITB code, change this.</td>
-    <td><tt>"E_ERROR | E_WARNING | E_PARSE"</tt></td>
+    <td><tt>E_ERROR | E_WARNING | E_PARSE</tt></td>
   </tr>
 </table> 
 

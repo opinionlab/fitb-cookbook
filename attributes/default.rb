@@ -24,7 +24,9 @@ case node['platform']
   when 'debian', 'ubuntu'
     default['fitb']['packages'] = \
     [
-      'php5-mysql'
+      'php5-mysql',
+      'php5-snmp',
+      'rrdtool'
     ]
     default['fitb']['apache']['conf_dir'] = "/etc/apache2/sites-available/"
 end

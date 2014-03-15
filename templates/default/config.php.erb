@@ -16,7 +16,7 @@ $pollhosts = array(
         "ip" => "<%= switch_hash['ip'] %>", 
         "snmpcommunity" => "<%= switch_hash['snmpcommunity'] %>",
         "graphtypes" => array(<% switch_hash['graphtypes'].each do |gt| %>"<%= gt %>",<% end %>),
-      ) 
+      ), 
   <% end %>
 );
 
@@ -63,4 +63,4 @@ $default_duration = <%= @config['default_duration'] %>;
 
 # PHP Error reporting
 # Incase you want to debug my crappy code, change this
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
+error_reporting(<%= @config['error_reporting'] %>);

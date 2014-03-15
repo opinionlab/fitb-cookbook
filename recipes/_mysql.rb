@@ -11,13 +11,13 @@ db_creds = \
   :password => node['mysql']['server_root_password']
 }
 
-# Same create commands, connection info as an external hash
+# database create commands
 mysql_database node['fitb']['config']['mysql']['db'] do
   connection db_creds
   action     :create
 end
 
-# Grant SELECT, UPDATE, and INSERT privileges to all tables in fitb db from all hosts
+# Grant SELECT, UPDATE, and INSERT privileges to all tables in fitb db
 mysql_database_user node['fitb']['config']['mysql']['user'] do
   connection    db_creds
   password      node['fitb']['config']['mysql']['pass']

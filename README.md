@@ -243,7 +243,7 @@ You'll want to override this hash in your wrapper cookbook. Check the example be
 This is designed to make it easier to add switches to the FITB config file. FITB reads the switches from an [array](https://github.com/lozzd/FITB/blob/master/config.php.sample#L10-L13), which this cookbook writes for you.
 
 ```ruby
-default['fitb']['config']['switches']= \
+default['fitb']['config']['switches'] = \
 {
   'switch_1' => {
     'enabled'         => true,

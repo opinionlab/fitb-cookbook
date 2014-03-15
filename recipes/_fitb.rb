@@ -1,3 +1,8 @@
+# install the packages we need for FITB to work
+node['fitb']['packages'].each do |p|
+  package p
+end
+
 # we need git to pull FITB code
 package "git"
 
@@ -21,12 +26,14 @@ git node['fitb']['install_dir'] do
   reference  node['fitb']['reference']
 end
 
+# fix ownership to fitb app dir for apache
 execute "fix ownership" do
-  command "chown -R www-data:www-data #{node['fitb']['install_dir']}"
+  command "chown -R #{node['apache']['user']}:#{node['apache']['group']} #{node['fitb']['install_dir']}"
 end
 
+# also fix perms so apache can read/execute
 execute "fix permissions" do
-  command "chmod -R 750 #{node['fitb']['install_dir']}"
+  command "chmod -R 755 #{node['fitb']['install_dir']}"
 end
 
 # basically this imports the FITB skeleton the first time the cookbook is ran. 
@@ -56,8 +63,17 @@ template "#{node['fitb']['install_dir']}/config.php" do
     })
 end
 
-# # create cron for polling switches
-# cron node['fitb']['cron']['name'] do
-#   action :create
-#   command
-# end
+# create cron for polling switches
+cron node['fitb']['cron']['name'] do
+  action :create
+  command node['fitb']['cron']['command']
+  minute  node['fitb']['cron']['minute']
+  hour    node['fitb']['cron']['hour']   
+  day     node['fitb']['cron']['day_of_month']
+  month   node['fitb']['cron']['month']       
+  weekday node['fitb']['cron']['day_of_week'] 
+end 
+
+
+
+

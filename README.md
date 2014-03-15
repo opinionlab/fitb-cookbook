@@ -225,7 +225,7 @@ These attributes will control the configuration of the FITB application. You can
   <tr>
     <td><tt>['config']['default_duration']</tt></td>
     <td>String</td>
-    <td>MySQL database for FITB</td>
+    <td>Default time for graphs to show</td>
     <td><tt>"-86400"</tt></td>
   </tr>
   <tr>

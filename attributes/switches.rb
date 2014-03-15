@@ -1,5 +1,5 @@
 # FITB hash of switches to poll
-default['fitb']['config']['switches']= \
+default['fitb']['config']['switches'] = \
 {
-  
+
 }

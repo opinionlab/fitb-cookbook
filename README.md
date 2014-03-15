@@ -238,7 +238,7 @@ These attributes will control the configuration of the FITB application. You can
 
 ### fitb::switches
 
-You'll want to override this hash in your wrapper cookbook. Check example below if you want to see how we do it at [OpinionLab](http://www.opinionlab.com).
+You'll want to override this hash in your wrapper cookbook. Check the example below if you want to see how we do it at [OpinionLab](http://www.opinionlab.com).
 
 This is designed to make it easier to add switches to the FITB config file. FITB reads the switches from an [array](https://github.com/lozzd/FITB/blob/master/config.php.sample#L10-L13), which this cookbook writes for you.
 

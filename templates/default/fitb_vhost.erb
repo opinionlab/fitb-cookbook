@@ -1,5 +1,3 @@
-NameVirtualHost *:80
-
 <VirtualHost *:80>
     ServerAdmin  <%= @server_admin %>
     ServerName   <%= @server_name %>
@@ -9,6 +7,7 @@ NameVirtualHost *:80
 
     <Directory <%= @install_dir %>>
         Options FollowSymLinks
-        AllowOverride None
     </Directory>
+    AddType  application/x-httpd-php         .php
+    AddHandler application/x-httpd-php .php5 .php4 .php .php3 .php2 .phtml
 </VirtualHost>

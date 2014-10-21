@@ -4,7 +4,7 @@ maintainer_email 'ops@opinionlab.com'
 license          'All rights reserved'
 description      'Installs/Configures fitb'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '1.0.0'
+version          '1.0.1'
 
 depends 'apache2', '1.9.6'
 depends 'apt', '2.3.8'
